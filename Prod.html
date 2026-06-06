@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Inventory System Using Async/Await</title>
+</head>
+<body>
+
+<h1>Product Inventory System Using Async/Await</h1>
+
+<button onclick="fetchProducts()">Fetch Products</button>
+<button onclick="addProduct()">Add Product</button>
+<button onclick="updateProduct()">Update Product</button>
+<button onclick="deleteProduct()">Delete Product</button>
+
+<h2 id="message"></h2>
+
+<div id="output"></div>
+
+<script>
+
+// FETCH PRODUCTS
+async function fetchProducts() {
+
+    const products = [
+        {code:"P001", name:"Laptop"},
+        {code:"P002", name:"Mobile"},
+        {code:"P003", name:"Tablet"},
+        {code:"P004", name:"Watch"}
+    ];
+
+    let result = "<h2>Product List</h2>";
+
+    products.forEach(product => {
+
+        result += `
+            <hr>
+            <p><b>Product Code:</b> ${product.code}</p>
+            <p><b>Product Name:</b> ${product.name}</p>
+        `;
+    });
+
+    document.getElementById("output").innerHTML = result;
+
+    document.getElementById("message").innerHTML = "";
+}
+
+// ADD PRODUCT
+async function addProduct() {
+
+    document.getElementById("message").innerHTML =
+        "Product Added Successfully";
+
+    document.getElementById("output").innerHTML =
+        `
+        <p>Product Code: P005</p>
+        <p>Product Name: Speaker</p>
+        `;
+}
+
+// UPDATE PRODUCT
+async function updateProduct() {
+
+    document.getElementById("message").innerHTML =
+        "Product Updated Successfully";
+
+    document.getElementById("output").innerHTML =
+        `
+        <p>Product Code: P001</p>
+        <p>Product Name: Laptop</p>
+        `;
+}
+
+// DELETE PRODUCT
+async function deleteProduct() {
+
+    document.getElementById("message").innerHTML =
+        "Product Deleted Successfully";
+
+    document.getElementById("output").innerHTML = "";
+}
+
+</script>
+
+</body>
+</html>

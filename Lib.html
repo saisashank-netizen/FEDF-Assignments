@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Book Management</title>
+</head>
+<body>
+
+<h1>Library Book Management</h1>
+
+<button onclick="displayBooks()">Display Books</button>
+<button onclick="addBook()">Add Book</button>
+<button onclick="updateBook()">Update Book</button>
+<button onclick="deleteBook()">Delete Book</button>
+
+<h2 id="message"></h2>
+
+<div id="output"></div>
+
+<script>
+
+// DISPLAY BOOKS
+async function displayBooks() {
+
+    const books = [
+        {id:1, title:"Java"},
+        {id:2, title:"Python"},
+        {id:3, title:"React"},
+        {id:4, title:"Node"}
+    ];
+
+    let result = "<h2>Book List</h2>";
+
+    books.forEach(book => {
+
+        result += `
+            <hr>
+            <p><b>ID:</b> ${book.id}</p>
+            <p><b>Title:</b> ${book.title}</p>
+        `;
+    });
+
+    document.getElementById("output").innerHTML = result;
+
+    document.getElementById("message").innerHTML = "";
+}
+
+// ADD BOOK
+async function addBook() {
+
+    document.getElementById("message").innerHTML =
+        "Book Added Successfully";
+
+    document.getElementById("output").innerHTML =
+        `
+        <p>ID: 5</p>
+        <p>Title: JavaScript</p>
+        `;
+}
+
+// UPDATE BOOK
+async function updateBook() {
+
+    document.getElementById("message").innerHTML =
+        "Book Updated Successfully";
+
+    document.getElementById("output").innerHTML =
+        `
+        <p>ID: 1</p>
+        <p>Title: Java</p>
+        `;
+}
+
+// DELETE BOOK
+async function deleteBook() {
+
+    document.getElementById("message").innerHTML =
+        "Book Deleted Successfully";
+
+    document.getElementById("output").innerHTML = "";
+}
+
+</script>
+
+</body>
+</html>

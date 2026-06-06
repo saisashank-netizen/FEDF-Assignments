@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Employee Payroll System</h2>
+<button onclick="showEmployee()">Show Employee Details</button>
+<div id="output"></div>
+
+<script>
+function showEmployee() {
+  const emp = {
+    name:"Rishik",
+    basic:42000,
+    allowances:[3000,2000,1500]
+  };
+
+  const total = emp.basic + emp.allowances.reduce((a,b)=>a+b,0);
+
+  document.getElementById("output").innerHTML = `
+    <h3>Name: ${emp.name}</h3>
+    <p>Basic Salary: ${emp.basic}</p>
+    <p>Allowances: ${emp.allowances.join(", ")}</p>
+    <p>Total Salary: ${total}</p>
+  `;
+}
+</script>
+
+</body>
+</html>

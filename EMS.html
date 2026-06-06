@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Management System</title>
+</head>
+<body>
+
+<h1>Employee Management System</h1>
+
+<button onclick="getEmployees()">Get Employees</button>
+<button onclick="addEmployee()">Add Employee</button>
+<button onclick="updateEmployee()">Update Employee</button>
+<button onclick="deleteEmployee()">Delete Employee</button>
+
+<h2 id="message"></h2>
+
+<div id="output"></div>
+
+<script>
+
+// GET EMPLOYEES
+async function getEmployees() {
+
+    const employees = [
+        {id:1, name:"Rahul", email:"rahul@gmail.com"},
+        {id:2, name:"Priya", email:"priya@gmail.com"},
+        {id:3, name:"Arjun", email:"arjun@gmail.com"},
+        {id:4, name:"Sneha", email:"sneha@gmail.com"}
+    ];
+
+    let result = "<h2>Employee List</h2>";
+
+    employees.forEach(emp => {
+
+        result += `
+            <hr>
+            <p><b>ID:</b> ${emp.id}</p>
+            <p><b>Name:</b> ${emp.name}</p>
+            <p><b>Email:</b> ${emp.email}</p>
+        `;
+    });
+
+    document.getElementById("output").innerHTML = result;
+
+    document.getElementById("message").innerHTML = "";
+}
+
+// ADD EMPLOYEE
+async function addEmployee() {
+
+    document.getElementById("message").innerHTML =
+        "Employee Added Successfully";
+
+    document.getElementById("output").innerHTML =
+        `
+        <p>ID: 5</p>
+        <p>Name: Kiran</p>
+        <p>Email: kiran@gmail.com</p>
+        `;
+}
+
+// UPDATE EMPLOYEE
+async function updateEmployee() {
+
+    document.getElementById("message").innerHTML =
+        "Employee Updated Successfully";
+
+    document.getElementById("output").innerHTML =
+        `
+        <p>ID: 1</p>
+        <p>Name: Rahul</p>
+        <p>Email: rahul@gmail.com</p>
+        `;
+}
+
+// DELETE EMPLOYEE
+async function deleteEmployee() {
+
+    document.getElementById("message").innerHTML =
+        "Employee Deleted Successfully";
+
+    document.getElementById("output").innerHTML = "";
+}
+
+</script>
+
+</body>
+</html>

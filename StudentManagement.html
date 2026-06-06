@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Management System</title>
+</head>
+<body>
+
+<h2>Student Management System</h2>
+
+<button onclick="showAllStudents()">Show Students</button>
+<button onclick="findAverageMarks()">Average Marks</button>
+<button onclick="getTopPerformers()">Top Students</button>
+<button onclick="calculateDeptStats()">Department Count</button>
+<button onclick="getVowelTotal()">Vowel Count</button>
+
+<hr>
+
+<div id="result">Click any button to view output</div>
+
+<script>
+
+let studentList = [
+  { id: 1, name: "Rahul", marks: 78, department: "CSE", attendance: 88 },
+  { id: 2, name: "Sneha", marks: 92, department: "ECE", attendance: 91 },
+  { id: 3, name: "Varun", marks: 69, department: "EEE", attendance: 84 },
+  { id: 4, name: "Pooja", marks: 85, department: "CSE", attendance: 93 },
+  { id: 5, name: "Amit", marks: 73, department: "ECE", attendance: 87 }
+];
+
+// Display Students
+function showAllStudents() {
+  let outputText = "<h3>Student Details</h3>";
+
+  for (let i = 0; i < studentList.length; i++) {
+    let student = studentList[i];
+
+    outputText += "ID: " + student.id + "<br>";
+    outputText += "Name: " + student.name + "<br>";
+    outputText += "Marks: " + student.marks + "<br>";
+    outputText += "Department: " + student.department + "<br>";
+    outputText += "Attendance: " + student.attendance + "%<br><br>";
+  }
+
+  document.getElementById("result").innerHTML = outputText;
+}
+
+// Average Marks
+function findAverageMarks() {
+  let total = 0;
+
+  for (let i = 0; i < studentList.length; i++) {
+    total += studentList[i].marks;
+  }
+
+  let avgMarks = total / studentList.length;
+
+  document.getElementById("result").innerHTML =
+    "<h3>Average Marks: " + avgMarks.toFixed(2) + "</h3>";
+}
+
+// Top Students
+function getTopPerformers() {
+  let outputText = "<h3>Top Students (Marks > 75)</h3>";
+
+  for (let i = 0; i < studentList.length; i++) {
+    if (studentList[i].marks > 75) {
+      outputText += studentList[i].name + " - " + studentList[i].marks + "<br>";
+    }
+  }
+
+  document.getElementById("result").innerHTML = outputText;
+}
+
+// Department Count
+function calculateDeptStats() {
+  let deptStats = {};
+
+  for (let i = 0; i < studentList.length; i++) {
+    let dept = studentList[i].department;
+
+    if (deptStats[dept]) {
+      deptStats[dept]++;
+    } else {
+      deptStats[dept] = 1;
+    }
+  }
+
+  let outputText = "<h3>Department-wise Count</h3>";
+
+  for (let key in deptStats) {
+    outputText += key + " : " + deptStats[key] + "<br>";
+  }
+
+  document.getElementById("result").innerHTML = outputText;
+}
+
+// Vowel Count
+function getVowelTotal() {
+  let vowels = "aeiouAEIOU";
+  let count = 0;
+
+  for (let i = 0; i < studentList.length; i++) {
+    let name = studentList[i].name;
+
+    for (let j = 0; j < name.length; j++) {
+      if (vowels.includes(name[j])) {
+        count++;
+      }
+    }
+  }
+
+  document.getElementById("result").innerHTML =
+    "<h3>Total Vowels in Names: " + count + "</h3>";
+}
+
+</script>
+
+</body>
+</html>
